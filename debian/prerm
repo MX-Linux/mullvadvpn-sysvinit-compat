@@ -1,0 +1,12 @@
+#!/bin/sh
+# prerm script for mullvadvpn-sysvinit-compat
+#
+set -e
+# stop daemon
+if [ -x "/etc/init.d/mullvad-daemon" ] && [ "$1" = remove ]; then
+	invoke-rc.d mullvad-daemon stop || exit $?
+fi
+
+# End 
+
+exit 0
